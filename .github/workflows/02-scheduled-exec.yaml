@@ -5,7 +5,7 @@ name: 'Execução Agendada'
 
 on:
   schedule:
-    - cron: '0 6 * * 0'
+    - cron: '0 6 * * 1'
 
 #Proximos passas sera as configuraçoes das açoes, trabalho/tarefas que ira ser executado na nossa pipeline
 #trabalhos/tarefas dentro do pipeline = jobs
