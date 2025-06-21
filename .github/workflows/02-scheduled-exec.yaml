@@ -1,6 +1,7 @@
+#CI de Nivel 02 - Disparo agendado
 
 # nome do nosso 'pipeline'
-name: 'Execução Manual
+name: 'Execução Agendada
 
 on:
   schedule:
