@@ -31,6 +31,13 @@ jobs:
     #maquina que o job vai executar: Primeiro informar o comando 'runs-on = qual maquina o job ira rodar'
     runs-on: ubuntu-latest
 
+    # condicional - if
+    # `${ expressao }`
+    # Expressáo para verificar se o status da pipe dependente foi executada com sucesso se sim entáo essa
+    # execucao ira ocorrer.
+
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
     # passos do script de build:
     steps:
       # cline do projeto
