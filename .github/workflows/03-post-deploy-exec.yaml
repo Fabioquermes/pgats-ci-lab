@@ -71,6 +71,6 @@ jobs:
                                 # '!cancelled() = se algum stepe anterior for cancelado rode mesmo assim esse stepe'
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }} 
-        wiht:
+        with:
           name: relatorio
           path: ./playwright-report
