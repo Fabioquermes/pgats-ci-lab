@@ -15,7 +15,7 @@ jobs:
       - nome: Instalando Yarn
         run: npm install -g yarn
 
-      - name: Instalando
+      - name: Instalando dependencias
         run: yarn
       
       - name: Chegando padronizacao do codigo
@@ -30,7 +30,7 @@ jobs:
     - nome: Instalando Yarn
       run: npm install -g yarn
 
-    - name: Instalando
+    - name: Instalando dependencias
       run: yarn
       
     - name: Executando testes de unidade
