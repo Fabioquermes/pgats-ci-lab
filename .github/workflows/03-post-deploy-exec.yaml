@@ -63,3 +63,14 @@ jobs:
       # executando os testes e2e
       - name: Executando Testes e2e
         run: yarn run e2e
+
+      # actions que podem ser executadas apos a execucao da pipe. Exp. Enviar um
+      # arquivo de relatorio
+      # Exemplo de condicionais:
+                                # 'always() = idependente do que acontecer rodar esse stap'
+                                # '!cancelled() = se algum stepe anterior for cancelado rode mesmo assim esse stepe'
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }} 
+        wiht:
+          name: relatorio
+          path: ./playwright-report
