@@ -12,7 +12,6 @@ on:
 
 jobs:
   e2e-tests:
-
     #maquina que o job vai executar: Primeiro informar o comando 'runs-on = qual maquina o job ira rodar'
     runs-on: ubuntu-latest
 
@@ -33,7 +32,7 @@ jobs:
       # instalancao das dependencias
       - name: Instalando dependencias
         run: yarn
-      
+
       # instalacao do Playwright
       - name: Instalando Playwright
         run: yarn playwright install

@@ -7,7 +7,7 @@ name: 'Execução Manual'
 #constumam ser chadadas de 'gatilhos'/'triggers'
 #iremos usar em nosso script o gatilho de exec manual = workflow_dispatch ele vai dentro
 #da palavra chave 'on'
-#Como estamos configurando nosso pipeline por um arquivo yaml, náo temos abertura 
+#Como estamos configurando nosso pipeline por um arquivo yaml, náo temos abertura
 #de chaves no inicio de nossas declarações.Incluimos uma quebra de linha apos a palavra chave
 #e incluimos um tab.
 
@@ -19,7 +19,6 @@ on:
 
 jobs:
   e2e-tests:
-
     #maquina que o job vai executar: Primeiro informar o comando 'runs-on = qual maquina o job ira rodar'
     runs-on: ubuntu-latest
 
@@ -40,7 +39,7 @@ jobs:
       # instalancao das dependencias
       - name: Instalando dependencias
         run: yarn
-      
+
       # instalacao do Playwright
       - name: Instalando Playwright
         run: yarn playwright install
