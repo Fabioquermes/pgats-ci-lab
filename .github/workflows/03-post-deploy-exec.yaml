@@ -1,0 +1,58 @@
+# CI de Nivel 03 - Disparo apos a conclusao de um pipeline
+
+# nome do nosso 'pipeline'
+name: 'Execução por Deploy'
+
+#Regras de execução da pipeline aparti da palavra chave 'on'
+#constumam ser chadadas de 'gatilhos'/'triggers'
+#Como estamos configurando nosso pipeline por um arquivo yaml, náo temos abertura 
+#de chaves no inicio de nossas declarações. Incluimos uma quebra de linha apos a palavra chave
+#e incluimos um tab.
+
+
+#Divemos os gatilhos: 
+                    # exec manual = workflow_dispatch
+                    # exec agendada = shedule
+# Nesse script iremos ver a execucao a parti de outra pipe = workflow_run
+
+
+on:
+  workflow_run:
+    workflows: ['Execução Manual']
+    types:
+      - completed
+
+#Proximos passas sera as configuraçoes das açoes, trabalho/tarefas que ira ser executado na nossa pipeline
+#trabalhos/tarefas dentro do pipeline = jobs
+
+jobs:
+  e2e-tests:
+
+    #maquina que o job vai executar: Primeiro informar o comando 'runs-on = qual maquina o job ira rodar'
+    runs-on: ubuntu-latest
+
+    # passos do script de build:
+    steps:
+      # cline do projeto
+      - uses: actions/checkout@v4
+
+      # instalacao do node
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22.x
+
+      # instalacao do Yarn
+      - name: Instalando Yarn
+        run: npm install -g yarn
+
+      # instalancao das dependencias
+      - name: Instalando dependencias
+        run: yarn
+      
+      # instalacao do Playwright
+      - name: Instalando Playwright
+        run: yarn playwright install
+
+      # executando os testes e2e
+      - name: Executando Testes e2e
+        run: yarn run e2e
