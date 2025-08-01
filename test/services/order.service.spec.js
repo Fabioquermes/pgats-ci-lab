@@ -28,6 +28,7 @@ describe(OrderService, () => {
       expect(sut.currentOrder).toStrictEqual(expected);
     });
     it('should retrieve undefined when there is no order yes', () => {
+      
       expect(sut.currentOrder).toBe(undefined);
     });
   });
